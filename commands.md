@@ -1,9 +1,7 @@
 # 1. 语音控制
 
 ## 1.1 sound_play相关指令
-教程：
-```
-http://wiki.ros.org/sound_play/Tutorials
+[教程]<http://wiki.ros.org/sound_play/Tutorials>
 ```
 依赖：
 ```bash
@@ -17,9 +15,7 @@ rosrun sound_play soundplay_node.py
 rosrun sound_play say.py “Hello world”
 ```
 ## 1.2 Sphinx相关指令
-教程：
-```
-http://wiki.ros.org/pocketsphinx
+[教程]<http://wiki.ros.org/pocketsphinx>
 ```
 依赖：
 ```bash
@@ -126,4 +122,56 @@ roslaunch turtlebot_bringup minimal.launch
 roslaunch turtlebot_navigation amcl_demo.launch map_file:=/tmp/my_map.yaml
 roslaunch turtlebot_rviz_launchers view_navigation.launch --screen 
 rosrun my_pkg navigation.py
+```
+
+# 4. 机器人手臂抓取
+## 4.1 参考资料
+[TurtleBot Arm]<http://wiki.ros.org/turtlebot_arm/>
+[Hardware]<https://makezine.com/projects/build-an-arm-for-your-turtlebot/ >
+[ROS dynamixel_motor]<http://wiki.ros.org/dynamixel_motor>
+
+## 4.2 依赖安装
+### 4.2.1 ros-melodic-dynamixel
+```bash
+sudo apt-get install ros-melodic-dynamixel-*
+```
+### 4.2.2. ros-project
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/arebgun/dynamixel_motor.git 
+cd ../
+catkin_make
+```
+
+## 4.3 检查硬件连接
+### 4.3.1 电源模块指示灯
+```bash
+ls /dev/ttyUSB0
+```
+### 4.3.2 USB 权限
+```bash
+sudo dmesg -c
+sudo chmod 666 /dev/ttyUSB0
+```
+
+## 4.4 启动控制器管理器
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg my_dynamixel dynamixel_controllers std_msgs rospy roscpp
+cd ~/catkin_ws
+catkin_make
+cd src/my_dynamixel/ 
+mkdir launch
+cd launch
+touch controller_manager.launch
+```
+
+## 4.5 启动controller
+```bash
+roslaunch my_dynamixel controller_manager.launch
+roslaunch my_dynamixel start_tilt_controller.launch
+```
+## 4.6 发布机械臂话题
+```bash
+rostopic pub -1 /tilt_controller/command std_msgs/Float64 -- 0.5
 ```
