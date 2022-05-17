@@ -2,7 +2,6 @@
 
 ## 1.1 sound_play相关指令
 [教程](http://wiki.ros.org/sound_play/Tutorials)
-```
 依赖：
 ```bash
 sudo apt-get install ros-melodic-audio-common
@@ -14,9 +13,10 @@ roscore
 rosrun sound_play soundplay_node.py
 rosrun sound_play say.py “Hello world”
 ```
+
 ## 1.2 Sphinx相关指令
 [教程](http://wiki.ros.org/pocketsphinx)
-```
+
 依赖：
 ```bash
 sudo apt-get install python-pip python-dev build-essential
@@ -36,12 +36,12 @@ catkin_make
 运行：
 实例1
 ```bash
-roslaunch pocketsphinx kws.launch dict:=/home/longway/rse_ws/src/pocketsphinx/demo/voice_cmd.dic kws:=/home/longway/rse_ws/src/pocketsphinx/demo/voice_cmd.kwlist
+roslaunch pocketsphinx kws.launch dict:=/home/longway/turtlebot_ws/src/pocketsphinx/demo/voice_cmd.dic kws:=/home/longway/turtlebot_ws/src/pocketsphinx/demo/voice_cmd.kwlist
 rostopic echo /kws_data
 ```
 实例2
 ```bash
-roslaunch pocketsphinx lm.launch dict:=/home/longway/rse_ws/src/pocketsphinx/demo/robocup/robocup.dic lm:=/home/longway/rse_ws/src/pocketsphinx/demo/robocup/robocup.lm
+roslaunch pocketsphinx lm.launch dict:=/home/longway/turtlebot_ws/src/pocketsphinx/demo/robocup/robocup.dic lm:=/home/longway/turtlebot_ws/src/pocketsphinx/demo/robocup/robocup.lm
 rostopic echo /lm_data
 ```
 
@@ -64,6 +64,7 @@ rosrun image_view image_view image:=/camera/depth_registered/image_raw
 ```
 
 # 3. 建图导航
+
 ## 3.1 安装依赖
 ### 3.1.1 Kinect 依赖
 OpenNI 库、freenect 驱动：
@@ -99,6 +100,7 @@ catkin_make
 #安装map_server功能包，它提供了map_server的ROS节点、地图 数据、实用程序，允许动态生成的映射保存到文件
 sudo apt-get install ros-melodic-map-server
 ```
+
 ## 3.2 建图
 创建地图：
 ```bash
@@ -110,6 +112,7 @@ roslaunch turtlebot_rviz_launchers view_navigation.launch
 ```bash
 rosrun map_server map_saver -f /tmp/my_map
 ```
+
 ## 3.3 机器人定点导航
 设置地图文件：
 ```bash
@@ -125,6 +128,7 @@ rosrun my_pkg navigation.py
 ```
 
 # 4. 机器人手臂抓取
+
 ## 4.1 参考资料
 [TurtleBot Arm](http://wiki.ros.org/turtlebot_arm/)
 [Hardware](https://makezine.com/projects/build-an-arm-for-your-turtlebot/ )
@@ -171,6 +175,7 @@ touch controller_manager.launch
 roslaunch my_dynamixel controller_manager.launch
 roslaunch my_dynamixel start_tilt_controller.launch
 ```
+
 ## 4.6 发布机械臂话题
 ```bash
 rostopic pub -1 /tilt_controller/command std_msgs/Float64 -- 0.5
