@@ -11,7 +11,7 @@ sudo apt-get install libasound2
 ```bash
 roscore
 rosrun sound_play soundplay_node.py
-rosrun sound_play say.py “Hello world”
+rosrun sound_play say.py "Hello world"
 ```
 
 ## 1.2 Sphinx相关指令
@@ -28,7 +28,7 @@ sudo apt-get install swig
 sudo apt-get install libpulse-dev
 sudo pip install pocketsphinx
 cd ~/catkin_ws/src
-git clone https://github.com/Pankaj-Baranwal/pocketsphinx​
+git clone https://github.com/Pankaj-Baranwal/pocketsphinx.git​
 cd ~/catkin_ws
 cd ..
 catkin_make
