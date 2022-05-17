@@ -1,7 +1,7 @@
 # 1. 语音控制
 
 ## 1.1 sound_play相关指令
-[教程]<http://wiki.ros.org/sound_play/Tutorials>
+[教程](http://wiki.ros.org/sound_play/Tutorials)
 ```
 依赖：
 ```bash
@@ -15,7 +15,7 @@ rosrun sound_play soundplay_node.py
 rosrun sound_play say.py “Hello world”
 ```
 ## 1.2 Sphinx相关指令
-[教程]<http://wiki.ros.org/pocketsphinx>
+[教程](http://wiki.ros.org/pocketsphinx)
 ```
 依赖：
 ```bash
@@ -50,7 +50,7 @@ Kinect 相关依赖安装:
 ```bash
 sudo apt-get install ros-melodic-openni-* ros-melodic-openni2-* ros-melodic-freenect-*
 echo $TURTLEBOT_3D_SENSOR
-echo "export TURTLEBOT_3D_SENSOR=kinect" >> .bashrc
+echo "export TURTLEBOT_3D_SENSOR=kinect" )) .bashrc
 ```
 启动相机:
 ```bash
@@ -126,9 +126,9 @@ rosrun my_pkg navigation.py
 
 # 4. 机器人手臂抓取
 ## 4.1 参考资料
-[TurtleBot Arm]<http://wiki.ros.org/turtlebot_arm/>
-[Hardware]<https://makezine.com/projects/build-an-arm-for-your-turtlebot/ >
-[ROS dynamixel_motor]<http://wiki.ros.org/dynamixel_motor>
+[TurtleBot Arm](http://wiki.ros.org/turtlebot_arm/)
+[Hardware](https://makezine.com/projects/build-an-arm-for-your-turtlebot/ )
+[ROS dynamixel_motor](http://wiki.ros.org/dynamixel_motor)
 
 ## 4.2 依赖安装
 ### 4.2.1 ros-melodic-dynamixel
